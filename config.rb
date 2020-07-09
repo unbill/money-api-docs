@@ -61,3 +61,7 @@ set :port, 4567
 helpers do
   require './lib/toc_data.rb'
 end
+
+config.apiName = 'Q2 Money API'
+config.host = 'https://api.q2money.com/v1/api'
+config.auth = 'Authorization: Bearer dc220490-e6ee-11e5-8a94-e7385a8d929e'

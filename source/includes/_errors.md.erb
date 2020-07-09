@@ -1,0 +1,9 @@
+## Errors
+
+The <%= config.apiName %> uses HTTP response status codes to indicate the success or failure of your API requests. If your request fails, <%= config.apiName %> returns an error using the appropriate status code.
+
+In general, there are three status code ranges you can expect:
+
+* `2xx` success status codes confirm that your request worked as expected
+* `4xx` error status codes indicate an error because of the information provided (e.g., a required parameter was omitted)
+* `5xx` error status codes are rare and indicate an error with <%= config.apiName %>'s servers

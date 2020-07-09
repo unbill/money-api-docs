@@ -1,0 +1,61 @@
+# Merchant
+
+## Sync merchant
+
+> Example Request
+
+```shell
+curl "<%= config.host %>/merchant/sync" \
+  -H "<%= config.auth %>" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "identifier": "Bk0zwVx1Z",
+    "meta": {
+      "firstName": "Demo",
+      "lastName": "User",
+      "email": "demo@demo.com",
+      "phone": "123-123-1234",
+      "address1": "123 Api St.",
+      "address2": "P.O. Box 283",
+      "city": "Demo",
+      "state": "Q2",
+      "zipcode": "12345",
+      "ssnLastFour": "0000",
+      "bankAccounts": [
+        {
+          "identifier": "ba123",
+          "accountNumber": "000123456789",
+          "accountType": "checking",
+          "accountLabel": "Primary checking",
+          "accountHolderName": "Demo User"
+        }
+      ]
+    }
+  }'
+```
+
+> Example Response
+
+```json
+{
+  "ssoToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjoiNWYwMzY1YTdhZjkyODg5NjhiNTNiM2QzIiwiaWF0IjoxNTk0MDU4OTQ1LCJleHAiOjE1OTQxNDUzNDUsImlzcyI6IlBBWUJJREVUIiwic3ViIjoiNWYwMzY1YTdhZjkyODg5NjhiNTNiM2QzIn0.kO_x9cZRlhI4dyGarOPI1w2gW2QI-ObqyKFdXKs64Ek"
+}
+```
+
+Creates or updates a merchant and returns a `ssoToken` to be used with the white-label application.
+
+### HTTP Request
+
+`POST <%= config.host %>/merchant/sync`
+
+### Arguments
+
+Parameter | Description
+--------- | -----------
+`identifier` | A unique identifier that represents a merchant in your system.
+`meta` | Additional information about the merchant in your system. This information will be used for identity verification by our payment processor in order to accept payments.
+`meta.bankAccounts` | A list of bank accounts that the merchant will select from as their deposit account.
+
+### Returns
+
+Returns an object with a `ssoToken` property that can be used with the white-label application.
