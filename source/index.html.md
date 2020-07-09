@@ -5,6 +5,7 @@ includes:
   - introduction
   - authentication
   - errors
+  - white-label
   - merchant
 
 search: true
